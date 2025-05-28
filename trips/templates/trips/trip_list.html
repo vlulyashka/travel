@@ -1,0 +1,16 @@
+{% extends 'trips/base.html' %}
+
+{% block content %}
+<div class="trip-list">
+    {% for trip in trips %}
+    <div class="trip-card">
+        <h2>{{ trip.city }}, {{ trip.country }}</h2>
+        <img src="{{ trip.attraction_image.url }}" alt="{{ trip.city }}">
+        <p><strong>Дата:</strong> {{ trip.trip_date }}</p>
+        <p><strong>Длительность:</strong> {{ trip.days }} дней</p>
+        <p><strong>Отель:</strong> {{ trip.get_hotel_class_display }}</p>
+        <p><strong>Цена:</strong> ${{ trip.price }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
